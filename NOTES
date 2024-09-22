@@ -1,0 +1,17 @@
+https://stackoverflow.com/questions/78874958/invalid-filter-length-is-error-in-django-template-how-to-fix
+
+
+
+Recommended Update
+
+Instead of using length_is:'n', update your template to use the length filter with the == operator:
+
+Old syntax:
+
+{% if value|length_is:'n' %}...{% endif %}
+New syntax:
+
+{% if value|length == n %}...{% endif %}
+You can also handle alternative outputs like this:
+
+{% if value|length == n %}True{% else %}False{% endif %}

@@ -1,0 +1,70 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static jazzmin %}
+{% get_jazzmin_ui_tweaks as jazzmin_ui %}
+<!-- {% load static %} -->
+
+{% block head %}
+    Overview
+{% endblock %}
+
+{% block content_title %} {% trans 'Ghost Example' %} {% endblock %}
+
+{% block breadcrumbs %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'admin:index' %}">{% trans 'Home' %}</a></li>
+        <li class="breadcrumb-item">{% trans 'Ghost View' %}</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="col-md-12">
+        <h3>This is a custom View and Template</h3>
+    </div>
+
+
+
+    <!-- Example using context -->
+    <div class="col-md-6">
+
+        <h3 style="margin-top: 15px;">Custom Data</h3>
+        <h4 style="margin-top: 15px;">Example using the context</h4>
+        <p>{{ custom_data }}</p>
+    </div>
+
+    <div class="col-md-6">
+        <h3 style="margin-top: 15px;">Custom Template</h3>
+        <p>Model: {{ opts.verbose_name_plural }}</p>
+    </div>
+
+    <!-- Example using AJAX -->
+    <div class="col-md-12">
+        <h3>Example using AJAX</h3>
+        <button style="margin-top: 25px;" class="btn btn-primary" onclick="getData()">Fetch Data</button>
+    </div>
+
+    <div class="col-md-12" id="customer-data">
+        <h4>Customer Data</h4>
+        <pre id="customer-data-content">No data yet...</pre>
+    </div>
+{% endblock %}
+
+{% block extrajs %}
+
+<script>
+
+    function getData() {
+        $.ajax({
+            type: 'GET',
+            url: '/ghost/get-customers',
+            success: function (data) {
+                $('#customer-data-content').html(JSON.stringify(data, null, 4));
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("Error: " + xhr.status + " " + thrownError);
+            },
+        });
+    };
+
+</script>
+
+{% endblock %}
