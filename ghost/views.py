@@ -2,7 +2,6 @@ from django.shortcuts import HttpResponse
 from system_management.custom_admin import tenant_admin_site
 from django.contrib.auth.mixins import LoginRequiredMixin
 from system_management.utilities import get_tenant
-from system_management.utilities import table_data
 from django.views import View
 from customers.models import Customer
 import json
