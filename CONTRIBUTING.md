@@ -42,7 +42,7 @@ As an open source project, DjangoMultiTenant welcomes contributions of all forms
 
 ## General considerations
 
-1. Please take a look at our code of conduct Link [HERE](https://github.com/nawtybean/DjangoMultiTenantPublic/blob/main/CODE_OF_CONDUCT.md).
+1. Please take a look at our code of conduct Link [HERE](https://github.com/nawtybean/DjangoMultiTenant/blob/main/CODE_OF_CONDUCT.md).
 
 
 ## Getting started
