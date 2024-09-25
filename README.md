@@ -15,6 +15,18 @@
   />
 </picture>
 
+<picture width="500">
+  <source
+    media="(prefers-color-scheme: light)"
+    src="https://github.com/nawtybean/DjangoMultiTenant/blob/main/static/assets/DjangoMultiTenantWhite.png"
+    alt="DjangoMultiTenant Logo (dark)"
+  />
+  <img
+    src="https://github.com/nawtybean/DjangoMultiTenant/blob/main/static/assets/DjangoMultiTenant.png"
+    alt="DjangoMultiTenant Logo (light)"
+  />
+</picture>
+
 ## Introduction
 
 🔑 Project Overview
