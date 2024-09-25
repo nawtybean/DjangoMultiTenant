@@ -3,26 +3,11 @@
 [![License](https://img.shields.io/badge/license-MIT-blue)](https://opensource.org/license/mit/)
 [![Python](https://img.shields.io/badge/python-3.8%20%7C%203.9%20%7C%203.10-blue)](https://www.python.org/)
 
-<picture width="500">
-  <source
-    media="(prefers-color-scheme: dark)"
-    src="https://github.com/nawtybean/DjangoMultiTenant/blob/main/static/assets/DjangoMultiTenant.png"
-    alt="DjangoMultiTenant Logo (dark)"
-  />
-  <img
-    src="https://github.com/nawtybean/DjangoMultiTenant/blob/main/static/assets/DjangoMultiTenantWhite.png"
-    alt="DjangoMultiTenant Logo (light)"
-  />
 
-  <source
-    media="(prefers-color-scheme: light)"
-    src="https://github.com/nawtybean/DjangoMultiTenant/blob/main/static/assets/DjangoMultiTenantWhite.png"
-    alt="DjangoMultiTenant Logo (dark)"
-  />
-  <img
-    src="https://github.com/nawtybean/DjangoMultiTenant/blob/main/static/assets/DjangoMultiTenant.png"
-    alt="DjangoMultiTenant Logo (light)"
-  />
+<picture width="500">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/nawtybean/DjangoMultiTenant/blob/main/static/assets/DjangoMultiTenantWhite.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/nawtybean/DjangoMultiTenant/blob/main/static/assets/DjangoMultiTenant.png">
+  <img alt="Shows The Logo depending on dark or light mode" src="https://github.com/nawtybean/DjangoMultiTenant/blob/main/static/assets/DjangoMultiTenantWhite.png">
 </picture>
 
 
