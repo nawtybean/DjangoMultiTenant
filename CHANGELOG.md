@@ -31,7 +31,6 @@ All enhancements and patches to DjangoMultiTenant will be documented in this fil
 ### Added
 
 -  Initial commit of the DjangoMultiTenant Project to GitHub
--  Added MIT Liceses for Open Source distribution and contribution
 
 
 ## 2024.09.25
@@ -39,3 +38,5 @@ All enhancements and patches to DjangoMultiTenant will be documented in this fil
 ### Added
 
 -  Added MIT Liceses for Open Source distribution and contribution
+-  Added Logos, Change Log, Code of Conduct, Contributing
+-  Updated Readme

@@ -6,11 +6,11 @@
 <picture width="500">
   <source
     media="(prefers-color-scheme: dark)"
-    src=""
+    src="https://github.com/nawtybean/DjangoMultiTenant/blob/main/static/assets/DjangoMultiTenant.png"
     alt="DjangoMultiTenant Logo (dark)"
   />
   <img
-    src="https://"
+    src="https://github.com/nawtybean/DjangoMultiTenant/blob/main/static/assets/DjangoMultiTenantWhite.png"
     alt="DjangoMultiTenant Logo (light)"
   />
 </picture>
@@ -172,10 +172,10 @@ Follow this guide to deloy the app on your own server
 # Contributor Guide
 
 Interested in contributing? Check out our
-[CONTRIBUTING.md](https://github.com/nawtybean/DjangoMultiTenantPublic/blob/main/CONTRIBUTING.md)
+[CONTRIBUTING.md](https://github.com/nawtybean/DjangoMultiTenant/blob/main/CONTRIBUTING.md)
 to find resources around contributing.
 
 # Resources
 
-- [Jazzmin](https://django-jazzmin.readthedocs.io/) - The theme provided in this project is provided by Creative Tim.
+- [Jazzmin](https://django-jazzmin.readthedocs.io/) - Welcome to Jazzmin, intended as a drop-in app to jazz up your django admin site, with plenty of things you can easily customise, including a built-in UI customizer.
 - [Django](https://www.djangoproject.com/) - The webframework for perfectionists with deadlines.
