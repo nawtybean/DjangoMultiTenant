@@ -8,6 +8,22 @@ from .views import *
 
 
 class GhostModelAdmin(admin.ModelAdmin):
+    """
+    Custom ModelAdmin for GhostModel with a custom URL routing.
+
+    Attributes:
+        model (Model): The GhostModel that this admin interface manages.
+
+    Methods:
+        get_urls():
+            Overrides the default URL configuration to add a custom path for the GhostModel changelist view.
+            Returns a URL pattern for the 'ghost/' path, which maps to a GhostView.
+
+    Admin Registration:
+        tenant_admin_site.register(GhostModel, GhostModelAdmin):
+            Registers the GhostModel with the tenant_admin_site using the custom GhostModelAdmin configuration.
+    """
+
     model = GhostModel
 
     def get_urls(self):

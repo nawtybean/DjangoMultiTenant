@@ -6,6 +6,29 @@ from django.views import View
 from django.shortcuts import render
 
 class TenantLoginView(LoginView):
+
+    """
+    Custom login view for tenant-specific authentication.
+
+    Attributes:
+        form_class (CustomAuthenticationForm): The custom authentication form used for login.
+
+    Methods:
+        form_valid(form):
+            Validates the user and ensures the tenant from the login form matches the tenant in the request.
+            If the tenant does not match, an error is added, and the form is marked as invalid.
+            On success, logs the user in and redirects to the success URL.
+
+        form_invalid(form):
+            Renders the login form again with validation errors if the form is invalid.
+
+    Views:
+        access_denied(request):
+            Renders the 'access_denied.html' template when access is denied.
+
+        index(request):
+            Renders the landing page (home.html) for the site.
+    """
     form_class = CustomAuthenticationForm
 
     def form_valid(self, form):

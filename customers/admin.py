@@ -27,7 +27,7 @@ class CustomerAdmin(admin.ModelAdmin):
 
     def edit(self, obj):
         return format_html(
-            '<a class="btn btn-success" href="/tenant-admin/customer/customer/{}/change/">Edit</a>',
+            '<a class="btn btn-success" href="/tenant-admin/customers/customer/{}/change/">Edit</a>',
             obj.pk,
         )
 

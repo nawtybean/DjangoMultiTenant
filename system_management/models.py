@@ -7,6 +7,32 @@ from .managers import CustomUserManager, LowercaseEmailField
 
 
 class Tenant(models.Model):
+    """
+    Model representing a tenant with unique identification and associated details.
+
+    Fields:
+        id (UUIDField): Unique identifier for each tenant, generated automatically.
+        name (CharField): Name of the tenant (e.g., company name), default is 'Acme'.
+        address (CharField): Address of the tenant, default is 'Acme Address'.
+        telephone (CharField): Contact telephone number of the tenant, default is '9999'.
+        email (CharField): Contact email of the tenant, default is 'acme@explosive.com'.
+        image (ImageField): Optional field for storing an image associated with the tenant.
+        subdomain (CharField): Subdomain assigned to the tenant, used for identifying tenant-specific
+            resources, default is 'acme'.
+
+        created (DateTimeField): Timestamp when the tenant was created, automatically set.
+        date_modified (DateTimeField): Timestamp for the last modification of the tenant's details,
+            automatically updated.
+
+    Methods:
+        __str__():
+            Returns the tenant's subdomain as its string representation.
+
+    Meta:
+        verbose_name_plural (str): The plural form of the model's name is 'Instance'.
+    """
+
+
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=255, default='Acme')
     address = models.CharField(max_length=255, default='Acme Address')
@@ -26,6 +52,18 @@ class Tenant(models.Model):
 
 
 class TenantAwareModel(models.Model):
+    """
+    Abstract model for tenant-aware objects that associate records with a specific tenant.
+
+    Fields:
+        tenant_aware_id (UUIDField): Unique identifier for the tenant-aware object, automatically generated.
+        tenant (ForeignKey): Foreign key linking the object to a specific Tenant instance. When the linked
+            Tenant is deleted, the related records will also be deleted (on_delete=models.CASCADE).
+
+    Meta:
+        verbose_name_plural (str): The plural form of the model's name is 'TenantAwareModel'.
+    """
+
     tenant_aware_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     tenant = models.ForeignKey(Tenant, on_delete=models.CASCADE)
 
@@ -34,6 +72,47 @@ class TenantAwareModel(models.Model):
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
+    """
+    Custom user model extending AbstractBaseUser and PermissionsMixin, with tenant awareness and additional fields.
+
+    Fields:
+        id (UUIDField): Unique identifier for the user, automatically generated.
+        email (LowercaseEmailField): Unique email address used as the username for authentication.
+        first_name (CharField): Optional first name of the user.
+        last_name (CharField): Optional last name of the user.
+        phone (CharField): Optional phone number for the user, default is 0.
+        is_confirmed (BooleanField): Indicates whether the user's email is confirmed, default is False.
+        is_staff (BooleanField): Indicates if the user has staff access to the site, default is True.
+        is_active (BooleanField): Indicates if the user is active and allowed to log in, default is True.
+        tenant (ForeignKey): Foreign key linking the user to a Tenant, optional field.
+
+        created (DateTimeField): Timestamp when the user was created, default is the current time.
+
+    Methods:
+        __str__():
+            Returns the user's email as the string representation.
+
+        get_full_name():
+            Returns the user's full name (in this case, their email).
+
+        get_short_name():
+            Returns the user's short name (in this case, their email).
+
+        has_perm(perm, obj=None):
+            Always returns True, indicating the user has the specified permission.
+
+        has_module_perms(app_label):
+            Always returns True, indicating the user has permissions to view the specified app.
+
+        save(*args, **kwargs):
+            Overrides the save method to set the tenant automatically when creating a new user if
+            no tenant is provided.
+
+    Meta:
+        verbose_name (str): The singular name for the model in the admin interface is 'Users'.
+        verbose_name_plural (str): The plural name for the model in the admin interface is 'Users'.
+    """
+
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     email = LowercaseEmailField(unique=True)
     first_name = models.CharField(max_length=150, blank=True)
