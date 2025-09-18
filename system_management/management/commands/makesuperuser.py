@@ -9,7 +9,7 @@ from system_management.models import Tenant
 
 # email = os.environ['DEFAULT_EMAIL']
 
-email = "tenant2@exampleza.com"
+email = "tenant1@exampleza.com"
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
@@ -34,7 +34,7 @@ class Command(BaseCommand):
                                 address='Tenant2 Address',
                                 telephone='9999',
                                 email=email,
-                                subdomain='tenant2',)
+                                subdomain='tenant1',)
 
             new_tenant.save()
             tenant_id = new_tenant.id
